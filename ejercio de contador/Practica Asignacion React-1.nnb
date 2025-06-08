@@ -1,0 +1,74 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "# Práctica React"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## Contador"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Instrucciones paso a paso:**\r\n 1. Importa useState y useEffect desde React.\r\n 2. Crea el estado \"nombre\" con useState.\r\n 3. Crea el estado \"mostrarMensaje\" para controlar si se muestra el saludo.\r\n 4. Crea una función para manejar el cambio en el input de texto.\r\n 5. Crea una función para mostrar el mensaje cuando el usuario haga clic en el botón.\r\n 6. Agrega un contador con useState y actualízalo cada segundo con useEffect cuando se muestre el mensaje.\r\n 7. Muestra el mensaje personalizado con el nombre y el tiempo que ha pasado desde que se hizo clic.\r\n 8. (Opcional avanzado) Implementa una TodoApp con funcionalidades para:\r\n    - Agregar tareas\r\n    - Marcar tareas como completadas\r\n    - Renderizar dinámicamente la lista\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Paso 1. Importa useState y useEffect desde React.\r\n\r\nfunction App() {\r\n    // Paso 2: crear estados necesarios\r\n    // Paso 3: funciones para manejar eventos y lógica del contador\r\n  \r\n    return (\r\n      <div style={{ padding: \"2rem\" }}>\r\n        <h1>¡Hola React!</h1>\r\n        {/* Paso 4: Input para nombre */}\r\n        {/* Paso 5: Botón para saludar */}\r\n        {/* Paso 6 y 7: Mensaje con nombre y contador */}\r\n      </div>\r\n    );\r\n  }\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## Ejercicio MultiCounter"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                " **Instrucciones paso a paso:**\r\n 1. Importa useState desde React.\r\n 2. Crea un estado \"contador\".\r\n 3. Crea botones para incrementar, decrementar y reiniciar el contador.\r\n 4. Muestra el valor actual del contador"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Paso 1. Importa useState or useReducer desde React. \r\n\r\nfunction MultiCounter() {\r\n    // Paso 2: crear estado contador\r\n    // Paso 3: botones para incrementar, decrementar y reiniciar\r\n  \r\n    return (\r\n      <div style={{ padding: \"2rem\" }}>\r\n        <h2>Contador:</h2>\r\n        {/* Botones para controlar contador */}\r\n      </div>\r\n    );\r\n  }"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## Formulario Usuario"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                " **Instrucciones paso a paso:**\r\n 1. Importa useState desde React.\r\n 2. Crea estados para \"email\", \"password\" y \"mensaje\".\r\n 3. Crea una función para validar los campos.\r\n 4. Muestra un mensaje de bienvenida si los campos están completos.\r\n 5. Muestra un mensaje de error si algún campo está vacío.// Paso 1: importar useState\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Paso 1. Importa useState desde React. \r\n\r\nfunction FormularioUsuario() {\r\n  // Paso 2: estados para email, password y mensaje\r\n  // Paso 3: función para validar y mostrar mensaje\r\n\r\n  return (\r\n    <div style={{ padding: \"2rem\" }}>\r\n      <h2>Login</h2>\r\n      {/* Inputs controlados y botón */}\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default App;"
+            ],
+            "outputs": []
+        }
+    ]
+}

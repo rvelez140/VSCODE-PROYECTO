@@ -1,0 +1,1620 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "#### 1. Introducción a los Frameworks de Desarrollo Web "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- **Definición** : Los frameworks de desarrollo web son herramientas que proporcionan una estructura estándar para construir y desplegar aplicaciones web.\r\n \r\n- **Importancia** :\r\n  - Simplifican el proceso de desarrollo.\r\n\r\n  - Fomentan el uso de buenas prácticas.\r\n\r\n  - Facilitan la colaboración entre desarrolladores.\r\n \r\n- **Ejemplos Populares** : \r\n  - **React** : Biblioteca enfocada en la construcción de interfaces de usuario.\r\n \r\n  - **Angular** : Framework completo para aplicaciones web.\r\n \r\n  - **Vue.js** : Framework progresivo para construir interfaces de usuario."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#### 2. Comparativa de React con Otros Frameworks "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- **React vs Angular vs Vue** : \r\n  - **React** :\r\n    - Biblioteca enfocada en la vista.\r\n\r\n    - Utiliza Virtual DOM para optimizar el rendimiento.\r\n\r\n    - Es flexible y se integra bien con otras librerías.\r\n \r\n  - **Angular** :\r\n    - Framework completo con muchas funcionalidades integradas.\r\n\r\n    - Usa TypeScript y ofrece una arquitectura MVC.\r\n \r\n  - **Vue.js** :\r\n    - Combina características de React y Angular.\r\n\r\n    - Fácil de aprender y usar."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "<img src=\"https://miro.medium.com/v2/resize:fit:1400/1*3AKcCsVLotKMsiTx-PnVmg.jpeg\" height=\"400\">"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### Uso de React con Babel en el Navegador "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Es posible utilizar React directamente en el navegador sin necesidad de un proceso de compilación, aprovechando Babel para transpilar el código JSX en tiempo real. Esto es útil para proyectos pequeños, pruebas o aprendizaje."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### Paso 1: Crear un Archivo HTML Básico "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Crea un archivo llamado `index.html` y coloca la estructura básica de un documento HTML."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<!DOCTYPE html>\r\n<html lang=\"es\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Ejemplo de React con Babel</title>\r\n</head>\r\n<body>\r\n\r\n</body>\r\n</html>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<!DOCTYPE html>\r",
+                                "<html lang=\"es\">\r",
+                                "<head>\r",
+                                "    <meta charset=\"UTF-8\">\r",
+                                "    <title>Ejemplo de React con Babel</title>\r",
+                                "</head>\r",
+                                "<body>\r",
+                                "\r",
+                                "</body>\r",
+                                "</html>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### Paso 2: Incluir las Bibliotecas Necesarias "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- **React**  y **ReactDOM**  desde un CDN.\r\n \r\n- **Babel Standalone**  para transpilar el código JSX en el navegador.\r\nAgrega las siguientes líneas dentro de la etiqueta `<head>` o justo antes del cierre de `</body>`:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<!-- React y ReactDOM desde CDN -->\r\n<script src=\"https://unpkg.com/react@18/umd/react.development.js\" crossorigin></script>\r\n<script src=\"https://unpkg.com/react-dom@18/umd/react-dom.development.js\" crossorigin></script>\r\n\r\n<!-- Babel Standalone -->\r\n<script src=\"https://unpkg.com/@babel/standalone/babel.min.js\"></script>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### Paso 3: Crear un Contenedor para Nuestra Aplicación "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Añade un elemento en el cuerpo del documento donde React montará la aplicación. Por convención, solemos usar un `div` con un `id` específico."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<div id=\"root\"></div>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### Paso 4: Escribir el Código React con JSX "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Vamos a escribir un script donde definiremos nuestros componentes de React usando JSX. Para que Babel pueda transpilar este código, debemos especificar el tipo de script como `text/babel`. Añade el siguiente script antes del cierre de `</body>`:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<script type=\"text/babel\">\r\n  // Código React irá aquí\r\n</script>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### Paso 5: Definir un Componente React"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function MiComponente() {\r\n    return (\r\n        <h1>¡Hola, mundo!</h1>\r\n    );\r\n}\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Explicación:**\r\n\r\n* `function MiComponente()` → Es una función de JavaScript normal.\r\n    \r\n* `return ( ... )` → Retorna JSX.\r\n    \r\n* `<h1>¡Hola, mundo!</h1>` → Parece HTML, pero es JSX. En realidad, esto se transforma en `React.createElement(...)` detrás de cámaras."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "---------------"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                " ¿Qué es JSX?"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**JSX** significa **JavaScript XML**.  \r\nEs una **extensión de sintaxis para JavaScript** que te permite escribir **código que se parece a HTML** dentro de JavaScript."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**JSX no es HTML, pero se parece.**  \r\nDetrás de cámaras, JSX se transforma en funciones que React usa para construir la interfaz de usuario."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Ejemplo básico"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "```jsx\r\nconst elemento = <h1>Hola, mundo</h1>;\r\n```\r\n\r\nEsto **parece HTML**, pero en realidad React lo convierte en algo como:\r\n\r\n```js\r\nconst elemento = React.createElement('h1', null, 'Hola, mundo');\r\n```\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "-----------------"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**¿Qué es Babel?**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Babel es un transpilador de JavaScript.\r\n\r\nSirve para convertir código moderno (como ES6+ o JSX) en JavaScript compatible con todos los navegadores, incluso los más antiguos."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Dentro del script anterior, vamos a crear un componente funcional sencillo."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<script type=\"text/babel\">\r\n    const root = ReactDOM.createRoot(document.getElementById('root'));\r\n    function App() {\r\n      return (\r\n        <div>\r\n          <h1>¡Hola, React!</h1>\r\n          <p>Este es un ejemplo de React usando Babel en el navegador.</p>\r\n        </div>\r\n      );\r\n    }\r\n  \r\n    root.render(<App />);\r\n  </script>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### Código Completo "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<!DOCTYPE html>\r\n<html lang=\"es\">\r\n\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <title>Ejemplo de React con Babel</title>\r\n  <!-- React y ReactDOM desde CDN -->\r\n  <script src=\"https://unpkg.com/react@17/umd/react.development.js\" crossorigin></script>\r\n  <script src=\"https://unpkg.com/react-dom@17/umd/react-dom.development.js\" crossorigin></script>\r\n\r\n  <!-- Babel Standalone -->\r\n  <script src=\"https://unpkg.com/@babel/standalone/babel.min.js\"></script>\r\n</head>\r\n\r\n<body>\r\n  <div id=\"root\"></div>\r\n\r\n  <script type=\"text/babel\">\r\n    const root = ReactDOM.createRoot(document.getElementById('root'));\r\n    function App() {\r\n      return (\r\n        <div>\r\n          <h1>¡Hola, React!</h1>\r\n          <p>Este es un ejemplo de React usando Babel en el navegador.</p>\r\n        </div>\r\n      );\r\n    }\r\n\r\n    root.render(<App />);\r\n  </script>\r\n</body>\r\n\r\n</html>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### Añadiendo Interactividad"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Modifica el script de la siguiente manera:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function App() {\r\n    const [contador, setContador] = React.useState(0);\r\n\r\n    function incrementar() {\r\n      setContador(contador + 1);\r\n    }\r\n\r\n    return (\r\n      <div>\r\n        <h1>Contador: {contador}</h1>\r\n        <button onClick={incrementar}>Incrementar</button>\r\n      </div>\r\n    );\r\n  }"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Explicación**:\r\n\r\n- Usamos el hook useState para manejar el estado del contador.\r\n- Al hacer clic en el botón, se llama a la función incrementar que actualiza el estado."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### Agregando Estilos"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function App() {\r\n    const [contador, setContador] = React.useState(0);\r\n\r\n    function incrementar() {\r\n      setContador(contador + 1);\r\n    }\r\n\r\n    return (\r\n      <div>\r\n        <h1 style={{ color: 'red' }}>Contador: {contador}</h1>\r\n        <button onClick={incrementar}>Incrementar</button>\r\n      </div>\r\n    );\r\n  }"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "<img src=\"https://miro.medium.com/v2/resize:fit:522/0*Hdm7hBTZ-hKlbtlV.png\">"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#### 3. Instalación y Puesta en Marcha "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- **Requisitos Previos** : \r\n  - [Node.js](https://nodejs.org/)  instalado en tu máquina.\r\n  - [Create React App](\r\nhttps://create-react-app.dev/docs/getting-started/)"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "shellscript",
+            "source": [
+                "npx create-react-app my-app"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- **Configuración del Entorno de Desarrollo** : \r\n\r\n  - Editor de código recomendado: [Visual Studio Code](https://code.visualstudio.com/) .\r\n\r\n  - Extensiones útiles: ESLint, Prettier, React Developer Tools."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#### 4. Creación de un Proyecto Nuevo con React "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- **Comando para Crear un Proyecto** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "shellscript",
+            "source": [
+                "npx create-react-app my-app"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- **Estructura Generada** : \r\n  - `node_modules`: Dependencias del proyecto.\r\n \r\n  - `public`: Archivos públicos como `index.html`.\r\n \r\n  - `src`: Código fuente de la aplicación."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### Ejercicio Práctico 1: Configuración de tu Primer Proyecto React \r\n**Objetivo** : Crear y ejecutar una aplicación React básica.\r\n\r\n**Pasos** : \r\n1. **Crear el Proyecto** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "shellscript",
+            "source": [
+                "npm install --save typescript @types/node @types/react @types/react-dom @types/jest"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "shellscript",
+            "source": [
+                "npm install -g create-react-app\ncreate-react-app mi-primer-proyecto --template typescript\ncd mi-primer-proyecto"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "2. **Ejecutar la Aplicación** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "shellscript",
+            "source": [
+                "npm start"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "3. **Verificar en el Navegador** : \r\n  - Abre `http://localhost:3000/` para ver la aplicación en funcionamiento.\r\n \r\n4. **Explorar la Estructura del Proyecto** :\r\n  - Revisa las carpetas y archivos generados."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#### 5. Comandos Básicos "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- **Iniciar el Servidor de Desarrollo** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "shellscript",
+            "source": [
+                "npm start"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- **Construir para Producción** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "shellscript",
+            "source": [
+                "npm run build"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- **Ejecutar Pruebas** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "shellscript",
+            "source": [
+                "npm test"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#### 6. Conocer la Estructura de un Proyecto"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- **Archivos Clave** : \r\n  - `src/index.js`: Punto de entrada de la aplicación.\r\n \r\n  - `src/App.js`: Componente principal.\r\n \r\n- **Carpetas Importantes** : \r\n  - `src/components`: Para almacenar componentes reutilizables.\r\n \r\n  - `src/styles`: Para hojas de estilo."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#### 7. Buenas Prácticas de Estructuración de Proyectos"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- **Organización de Archivos** :\r\n  - Utilizar nombres descriptivos para carpetas y archivos.\r\n\r\n  - Separar componentes, estilos y utilidades.\r\n \r\n- **Consistencia** :\r\n  - Seguir un estilo de codificación consistente.\r\n\r\n  - Utilizar linters como ESLint."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#### 8. Componentes"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Son la base fundamental de las aplicaciones en React. Un componente es una pieza reutilizable y modular de la interfaz de usuario (UI), que puede representar cualquier parte de una aplicación, desde un botón simple hasta una página completa. React utiliza estos componentes para dividir la interfaz en piezas pequeñas, que son fáciles de mantener y reutilizar."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### 8.1 Creación de Componentes \r\n \r\n- **Componente Funcional** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Los componentes funcionales son funciones de JavaScript que aceptan props como argumentos y retornan elementos JSX. Son el tipo de componente más común en las aplicaciones modernas de React debido a su simplicidad y mejor rendimiento."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function Saludo() {\r\n  return <h1>¡Hola Mundo!</h1>;\r\n}\r\n\r\nexport default Saludo;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- **Componente de Clase** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Los componentes de clase son clases de ES6 que extienden la clase React.Component y tienen un método render() que retorna JSX. Los componentes de clase solían ser la única forma de manejar estado y ciclo de vida antes de los hooks."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import React, { Component } from 'react';\r\n\r\nclass Saludo extends React.Component {\r\n  render() {\r\n    return <h1>¡Hola Mundo!</h1>;\r\n  }\r\n}\r\n\r\nexport default Saludo;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### Ejercicio Práctico 2: Creación de un Componente Básico \r\n\r\n**Objetivo** : Crear un componente de saludo personalizado.\r\n\r\n**Pasos** : \r\n1. **Crear el Archivo del Componente** : \r\n  - En `src/components/`, crea `Saludo.js`.\r\n \r\n2. **Definir el Componente** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import React from 'react';\r\n\r\nfunction Saludo(props) {\r\n  return <h1>¡Hola, {props.nombre}!</h1>;\r\n}\r\n\r\nexport default Saludo;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "3. **Usar el Componente en `App.js`** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import Saludo from './components/Saludo';\r\n\r\nfunction App() {\r\n  return (\r\n    <div>\r\n      <Saludo nombre=\"Juan\" />\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default App;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "4. **Verificar en el Navegador:**\r\n\r\nAbre http://localhost:3000/ para ver la aplicación en funcionamiento."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### 8.2 Data Binding \r\n\r\nEs el proceso mediante el cual se conecta la interfaz de usuario con los datos subyacentes de la aplicación. En React, el data binding es unidireccional, lo que significa que los datos fluyen en una sola dirección: de los componentes padres hacia los componentes hijos a través de las props.\r\n \r\n- **Props** : Parámetros que se pasan a los componentes de sus padres.\r\n \r\n- **State** : Datos internos de un componente que pueden cambiar.\r\n\r\n**Ejemplo de Uso de Props** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function Saludo(props) {\r\n  return <h1>¡Hola, {props.nombre}!</h1>;\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### 8.3 Aplicación de Estilos al Componente \r\n \r\n- **Estilos en Línea** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "<h1 style={{ color: 'blue' }}>¡Hola Mundo!</h1>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- **Hojas de Estilo CSS** : \r\n  - Crear `Saludo.css` y asociar clases CSS.\r\n \r\n- **CSS Modules** :\r\n  - Importar estilos como módulos para evitar colisiones."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### Ejercicio Práctico 3: Aplicando Estilos \r\n\r\n**Objetivo** : Estilizar el componente `Saludo` utilizando una hoja de estilo.**Pasos** : \r\n1. **Crear `Saludo.css` en `src/components/`** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "```css\r\n.titulo {\r\n  color: blue;\r\n  font-size: 24px;\r\n}\r\n```"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "2. **Importar y Aplicar la Clase CSS** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import './Saludo.css';\r\n\r\nfunction Saludo(props) {\r\n  return <h1 className=\"titulo\">¡Hola, {props.nombre}!</h1>;\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "3. **Verificar los Estilos en el Navegador** ."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### 8.4 Componentes Anidados \r\n \r\n- **Composición de Componentes** :\r\n  - Un componente puede utilizar otros componentes.\r\n \r\n- **Ejemplo** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function App() {\r\n  return (\r\n    <div>\r\n      <Header />\r\n      <Contenido />\r\n      <Footer />\r\n    </div>\r\n  );\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### 8.5 Paso de Datos al Componente \r\n \r\n- **Usando Props** :\r\n  - Pasar datos como atributos al componente.\r\n \r\n  - Acceder a ellos dentro del componente a través de `props`."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### Ejercicio Práctico 4: Componentes Anidados y Paso de Datos \r\n\r\n**Objetivo** : Crear componentes anidados y pasar datos entre ellos.\r\n\r\n**Pasos** : \r\n1. **Crear el Componente `Usuario.js`** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function Usuario(props) {\r\n  return (\r\n    <div>\r\n      <h2>{props.nombre}</h2>\r\n      <p>Edad: {props.edad}</p>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default Usuario;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "2. **Actualizar `App.js` para Usar `Usuario`** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import Usuario from './components/Usuario';\r\n\r\nfunction App() {\r\n  return (\r\n    <div>\r\n      <Usuario nombre=\"Ana\" edad={28} />\r\n      <Usuario nombre=\"Luis\" edad={34} />\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default App;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "3. **Verificar en el Navegador** ."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Ejemplo avanzado de aninación de Componentes**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "//Avatar.js\r\nexport default function Avatar({ person, size, url }) {\r\n    return (\r\n        <img\r\n            className=\"avatar\"\r\n            src={url}\r\n            alt={person.name}\r\n            width={size}\r\n            height={size}\r\n        />\r\n    );\r\n}\r\n\r\nexport default Avatar;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import Avatar from './Avatar.js';\r\n\r\nfunction Card({ children }) {\r\n  return (\r\n    <div className=\"card\">\r\n      {children}\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default Card;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import Avatar from \"./components/Avatar\";\r\nimport Card from \"./components/Card\";\r\n\r\nexport default function App() {\r\n    return (\r\n      <Card>\r\n\r\n        <Avatar\r\n          size={100}\r\n          url={\"https://media.istockphoto.com/id/1300512215/photo/headshot-portrait-of-smiling-ethnic-businessman-in-office.jpg?s=612x612&w=0&k=20&c=QjebAlXBgee05B3rcLDAtOaMtmdLjtZ5Yg9IJoiy-VY=\"}\r\n          person={{ \r\n            name: 'Garu',\r\n            lastname: 'Javier'\r\n          }}\r\n        />\r\n        &nbsp;\r\n\r\n        <Avatar\r\n          size={100}\r\n          url={\"https://thumbs.dreamstime.com/b/profile-picture-caucasian-male-employee-posing-office-happy-young-worker-look-camera-workplace-headshot-portrait-smiling-190186649.jpg\"}\r\n          person={{ \r\n            name: 'Luis',\r\n            lastname: 'Romero'\r\n          }}\r\n        />\r\n        &nbsp;\r\n        <Avatar\r\n          size={100}\r\n          url={\"https://thumbs.dreamstime.com/b/profile-picture-caucasian-male-employee-posing-office-happy-young-worker-look-camera-workplace-headshot-portrait-smiling-190186649.jpg\"}\r\n          person={{ \r\n            name: 'Luis',\r\n            lastname: 'Romero'\r\n          }}\r\n        />\r\n        <Avatar\r\n          size={100}\r\n          url={\"https://thumbs.dreamstime.com/b/profile-picture-caucasian-male-employee-posing-office-happy-young-worker-look-camera-workplace-headshot-portrait-smiling-190186649.jpg\"}\r\n          person={{ \r\n            name: 'Luis',\r\n            lastname: 'Romero'\r\n          }}\r\n        />\r\n        <Avatar\r\n          size={100}\r\n          url={\"https://thumbs.dreamstime.com/b/profile-picture-caucasian-male-employee-posing-office-happy-young-worker-look-camera-workplace-headshot-portrait-smiling-190186649.jpg\"}\r\n          person={{ \r\n            name: 'Luis',\r\n            lastname: 'Romero'\r\n          }}\r\n        />\r\n        <Avatar\r\n          size={100}\r\n          url={\"https://thumbs.dreamstime.com/b/profile-picture-caucasian-male-employee-posing-office-happy-young-worker-look-camera-workplace-headshot-portrait-smiling-190186649.jpg\"}\r\n          person={{ \r\n            name: 'Luis',\r\n            lastname: 'Romero'\r\n          }}\r\n        />\r\n        \r\n        <Avatar\r\n          size={100}\r\n          url={\"https://thumbs.dreamstime.com/b/profile-picture-caucasian-male-employee-posing-office-happy-young-worker-look-camera-workplace-headshot-portrait-smiling-190186649.jpg\"}\r\n          person={{ \r\n            name: 'Luis',\r\n            lastname: 'Romero'\r\n          }}\r\n        />\r\n        \r\n      </Card>\r\n    );\r\n  }"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### 8.6 Respuesta a Eventos \r\n \r\n- **Manejo de Eventos en React** : \r\n  - Eventos comunes: `onClick`, `onChange`, `onSubmit`.\r\n \r\n- **Ejemplo de Evento** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function Boton() {\r\n  function handleClick() {\r\n    alert('Botón clickeado');\r\n  }\r\n\r\n  return <button onClick={handleClick}>Clic Aquí</button>;\r\n}\r\n\r\nexport default Boton;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Formas simplificadas**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "<button onClick={function handleClick() {\r\n  alert('¡Me hiciste clic!');\r\n}}></button>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "\r\n<button onClick={ () => { alert('¡Me hiciste clic!');} }></button>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Pasar controladores de eventos como props**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function Button({ onClick, children }) {\r\n    return (\r\n        <button onClick={onClick}>\r\n            {children}\r\n        </button>\r\n    );\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function PlayButton({ movieName }) {\r\n    function handlePlayClick() {\r\n        alert(`¡Reproduciendo ${movieName}!`);\r\n    }\r\n\r\n    return (\r\n        <Button onClick={handlePlayClick}>\r\n            Reproducir \"{movieName}\"\r\n        </Button>\r\n    );\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function UploadButton() {\r\n    return (\r\n        <Button onClick={() => alert('¡Subiendo!')}>\r\n            Subir imagen\r\n        </Button>\r\n    );\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "\r\nexport default function App() {\r\n    return (\r\n        <div>\r\n            <PlayButton movieName=\"Kiki: Entregas a domicilio\" />\r\n            <UploadButton />\r\n        </div>\r\n    );\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#### Fragments "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Un fragmento (Fragment) es una solución que permite devolver múltiples elementos sin añadir nodos extra al DOM. Normalmente, cuando quieres devolver varios elementos desde un componente, tendrías que envolverlos en un solo elemento padre (como un `<div>`)."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "//Con div\r\nexport default function App() {\r\n    return (\r\n        <div>\r\n            <PlayButton movieName=\"Kiki: Entregas a domicilio\" />\r\n            <UploadButton />\r\n        </div>\r\n    );\r\n}\r\n\r\n//Sin div\r\nexport default function App() {\r\n    return (\r\n        <PlayButton movieName=\"Kiki: Entregas a domicilio\" />\r\n        <UploadButton />\r\n    );\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Opción 1: Usar `<React.Fragment>`**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import React from 'react';\r\n\r\nfunction MiComponente() {\r\n  return (\r\n    <React.Fragment>\r\n      <h1>Título</h1>\r\n      <p>Este es un párrafo dentro de un fragmento.</p>\r\n    </React.Fragment>\r\n  );\r\n}\r\n\r\nexport default MiComponente;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                " En este caso, React.Fragment envuelve los elementos sin agregar un contenedor adicional en el DOM. Los elementos `<h1>` y `<p>` serán renderizados directamente como hermanos."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import React from 'react';\r\n\r\nexport default function App() {\r\n    return (\r\n        <React.Fragment>\r\n            <PlayButton movieName=\"Kiki: Entregas a domicilio\" />\r\n            <UploadButton />\r\n        </React.Fragment>\r\n    );\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Opción 2: Usar la sintaxis corta (`<>...</>`)**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "React también proporciona una sintaxis más corta para los fragments, que es preferida por su simplicidad:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function MiComponente() {\r\n    return (\r\n      <>\r\n        <h1>Título</h1>\r\n        <p>Este es un párrafo dentro de un fragmento.</p>\r\n      </>\r\n    );\r\n  }\r\n  \r\n  export default MiComponente;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Ambas opciones logran el mismo resultado: múltiples elementos son renderizados sin envolverlos en un nodo extra."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import React from 'react';\r\n\r\nexport default function App() {\r\n    return (\r\n        <>\r\n            <PlayButton movieName=\"Kiki: Entregas a domicilio\" />\r\n            <UploadButton />\r\n        </>\r\n    );\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**PropTypes en JavaScript**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "En JavaScript (sin TypeScript), usamos PropTypes para especificar los tipos de las props que un componente espera recibir, y defaultProps para definir valores por defecto."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import React from 'react';\r\nimport PropTypes from 'prop-types';\r\n\r\nfunction Usuario({ nombre, edad, esActivo }) {\r\n  return (\r\n    <div>\r\n      <h1>Usuario: {nombre}</h1>\r\n      <p>Edad: {edad}</p>\r\n      <p>Estado: {esActivo ? 'Activo' : 'Inactivo'}</p>\r\n    </div>\r\n  );\r\n}\r\n\r\n// Especificamos los tipos de las props usando PropTypes\r\nUsuario.propTypes = {\r\n  nombre: PropTypes.string.isRequired, // nombre es obligatorio\r\n  edad: PropTypes.number,              // edad es opcional\r\n  esActivo: PropTypes.bool             // esActivo es opcional\r\n};\r\n\r\n// Definimos valores por defecto usando defaultProps\r\nUsuario.defaultProps = {\r\n  edad: 18,         // Si no se pasa edad, el valor por defecto será 18\r\n  esActivo: false   // Si no se pasa esActivo, el valor por defecto será false\r\n};\r\n\r\nexport default Usuario;\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Explicación:**\r\n\r\n- `propTypes`: Se usa para validar las props que se pasan al componente, verificando que el tipo sea correcto. Si el tipo no coincide con lo especificado, se lanza una advertencia en la consola.\r\n\r\n    - `nombre` debe ser una cadena (string) y es obligatorio.\r\n    - `edad` es opcional, pero si se pasa, debe ser un número (number).\r\n    - `esActivo` es opcional, y si se pasa, debe ser un booleano (bool).\r\n\r\n- `defaultProps`: Si no se proporcionan valores para ciertas props, React usará los valores por defecto definidos en defaultProps."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Ejemplo en TypeScript**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "import React from 'react';\r\n\r\n// Definimos la interfaz de las props\r\ninterface UsuarioProps {\r\n    nombre: string;     // nombre es obligatorio\r\n    edad?: number;      // edad es opcional\r\n    esActivo?: boolean; // esActivo es opcional\r\n}\r\n\r\nfunction Usuario({ nombre, edad = 18, esActivo = false }: UsuarioProps) {\r\n    return (\r\n        <div>\r\n            <h1>Usuario: {nombre}</h1>\r\n            <p>Edad: {edad}</p>\r\n            <p>Estado: {esActivo ? 'Activo' : 'Inactivo'}</p>\r\n        </div>\r\n    );\r\n};\r\n\r\nexport default Usuario;\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**¿Qué es `{children}` en React?**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "`{children}` es una prop especial que se utiliza para pasar contenido (otros componentes, texto, HTML, etc.) dentro de un componente desde su componente padre. Es decir, children representa los elementos que se incluyen entre las etiquetas de apertura y cierre de un componente."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Este patrón es útil cuando quieres crear componentes envolventes o contenedores reutilizables que puedan mostrar diferentes contenidos dinámicos sin tener que modificar la estructura del componente cada vez."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Ejemplo Básico Usando `{children}`**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import React from 'react';\r\n\r\n// Componente Contenedor que usa {children}\r\nfunction Contenedor({ children }) {\r\n  return (\r\n    <div style={{ border: '2px solid blue', padding: '10px' }}>\r\n      {children}\r\n    </div>\r\n  );\r\n}\r\n\r\n// Componente principal\r\nfunction App() {\r\n  return (\r\n    <div>\r\n      <h1>Ejemplo de uso de children</h1>\r\n\r\n      {/* Usamos el componente Contenedor */}\r\n      <Contenedor>\r\n        <p>Este es el contenido que va dentro del componente Contenedor.</p>\r\n        <p>Este es el contenido que va dentro del componente Contenedor.</p>\r\n        <p>Este es el contenido que va dentro del componente Contenedor.</p>\r\n        <p>Este es el contenido que va dentro del componente Contenedor.</p>\r\n        <p>Este es el contenido que va dentro del componente Contenedor.</p>\r\n      </Contenedor>\r\n\r\n      {/* Usamos el componente Contenedor con diferente contenido */}\r\n      <Contenedor>\r\n        <h2>Otro contenido diferente</h2>\r\n        <p>Este es otro bloque de contenido dentro del mismo componente Contenedor.</p>\r\n        <Contenedor>\r\n            <p>Este es el contenido que va dentro del componente Contenedor.</p>\r\n            <p>Este es el contenido que va dentro del componente Contenedor.</p>\r\n            <p>Este es el contenido que va dentro del componente Contenedor.</p>\r\n            <p>Este es el contenido que va dentro del componente Contenedor.</p>\r\n            <p>Este es el contenido que va dentro del componente Contenedor.</p>\r\n      </Contenedor>\r\n      </Contenedor>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default App;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### Ejercicio Práctico 5: Manejo de Eventos \r\n\r\n**Objetivo** : Crear un contador que incremente al hacer clic en un botón.\r\n\r\n**Pasos** : \r\n1. **Crear el Componente `Contador.js`** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import React, { useState } from 'react';\r\n\r\nfunction Contador() {\r\n  const [contador, setContador] = useState(0);\r\n\r\n  return (\r\n    <div>\r\n      <p>Has clickeado {contador} veces</p>\r\n      <button onClick={() => setContador(contador + 1)}>Incrementar</button>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default Contador;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "2. **Importar y Usar en `App.js`** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import Contador from './components/Contador';\r\n\r\nfunction App() {\r\n  return (\r\n    <div>\r\n      <Contador />\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default App;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "3. **Probar la Funcionalidad en el Navegador** ."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**¿Qué es useState en React?**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "`useState` es un hook de React que permite agregar estado a los componentes funcionales. \r\n\r\nAntes de la introducción de los hooks en React 16.8, solo los componentes de clase podían tener y gestionar su propio estado. Ahora, con `useState`, podemos crear y gestionar variables de estado dentro de los componentes funcionales."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Sintaxis Básica de `useState`"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const [estado, setEstado] = useState(valorInicial);"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- `estado`: Es el valor actual del estado. Este valor puede ser un número, cadena, objeto o cualquier tipo de dato.\r\n- `setEstado`: Es una función que se utiliza para actualizar el estado. Al invocarla, React sabe que debe volver a renderizar el componente con el nuevo valor de estado.\r\n- `valorInicial`: Es el valor que se asigna al estado la primera vez que el componente se renderiza."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Programación Declarativa en React**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "La **programación declarativa** es un paradigma de programación en el que se describe qué debe hacer el programa sin preocuparse por cómo se hace. Es decir, el desarrollador especifica el resultado deseado, y el sistema (en este caso, React) se encarga de gestionar el proceso para obtener ese resultado.\r\n\r\nEn contraste, la programación imperativa es un estilo en el que el desarrollador debe especificar cómo lograr un resultado, proporcionando instrucciones detalladas paso a paso."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Imperativo vs Declarativo**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Imperativo\r\nconst boton = document.querySelector('button');\r\nboton.innerHTML = 'Nuevo Texto';"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "//Declarativo\r\nfunction Boton({ texto }) {\r\n    return <button>{texto}</button>;\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Ejemplo mas complejo: Contador con useState y Programación Declarativa**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import React, { useState } from 'react';\r\n\r\nfunction Contador() {\r\n  const [contador, setContador] = useState(0);\r\n  \r\n  function reiniciar() {\r\n    setContador(0);\r\n  }\r\n\r\n  return (\r\n    <div>\r\n      <h1>Contador: {contador}</h1>\r\n      <button onClick={() => setContador(contador + 1)}>\r\n        Incrementar\r\n      </button>\r\n      <button onClick={reiniciar}>Reiniciar</button>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default Contador;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Inicializando `useState` con un Objeto**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import React, { useState } from 'react';\r\n\r\nfunction PerfilUsuario() {\r\n  // Inicializamos useState con un objeto que contiene el nombre y la edad\r\n  const [usuario, setUsuario] = useState({\r\n    nombre: 'Juan Perez',\r\n    edad: 28\r\n  });\r\n\r\n  // Función para actualizar un campo específico (nombre o edad)\r\n  const actualizarNombre = () => {\r\n    setUsuario({ ...usuario, nombre: 'Ana Lopez' });\r\n  };\r\n\r\n  const incrementarEdad = () => {\r\n    setUsuario({ ...usuario, edad: usuario.edad + 1 });\r\n  };\r\n\r\n  return (\r\n    <div>\r\n      <h1>Perfil de Usuario</h1>\r\n      <p>Nombre: {usuario.nombre}</p>\r\n      <p>Edad: {usuario.edad}</p>\r\n      <button onClick={actualizarNombre}>Cambiar Nombre</button>\r\n      <button onClick={incrementarEdad}>Incrementar Edad</button>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default PerfilUsuario;\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### 8.7 Ciclo de Vida de los Componentes "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "El ciclo de vida de un componente en React se refiere a las diferentes etapas por las que pasa un componente desde que es creado (montado), actualizado y finalmente destruido (desmontado).\r\n\r\nEl ciclo de vida de un componente en React se divide en tres fases principales:\r\n\r\n- **Montaje**: El componente se crea y se inserta en el DOM.\r\n- **Actualización**: El componente se actualiza cuando cambian sus props o su estado.\r\n- **Desmontaje**: El componente se elimina del DOM.\r\n\r\nEn los componentes de clase, React proporciona varios métodos para ejecutar código en cada una de las fases del ciclo de vida. Los más importantes son:\r\n\r\n- `componentDidMount`(): Se ejecuta una vez que el componente ha sido montado (insertado en el DOM).\r\n- `componentDidUpdate`(prevProps, prevState): Se ejecuta después de que el componente ha sido actualizado (cuando cambian las props o el estado).\r\n- `componentWillUnmount`(): Se ejecuta justo antes de que el componente sea desmontado y eliminado del DOM.\r\n\r\n---\r\n- **Componentes de Clase** : \r\n  - Métodos como `componentDidMount`, `componentDidUpdate`, `componentWillUnmount`.\r\n \r\n- **Componentes Funcionales con Hooks** : \r\n  - Uso de `useEffect` para manejar efectos secundarios."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Con los hooks introducidos en React 16.8, los componentes funcionales pueden gestionar el ciclo de vida de una manera más simplificada utilizando el hook `useEffect`. Este hook permite imitar el comportamiento de `componentDidMount`, `componentDidUpdate` y `componentWillUnmount` en un solo lugar."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import React, { useState, useEffect } from 'react';\r\n\r\nfunction Reloj() {\r\n  const [hora, setHora] = useState(new Date());\r\n\r\n  useEffect(() => {\r\n    const timerID = setInterval(() => setHora(new Date()), 1000);\r\n    return () => clearInterval(timerID);\r\n  }, []);\r\n\r\n  return <p>La hora es: {hora.toLocaleTimeString()}</p>;\r\n}\r\n\r\nexport default Reloj;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Explicación del Ejemplo con `useEffect`:\r\n\r\n- `useEffect`(): Combina el comportamiento de `componentDidMount`, `componentDidUpdate` y `componentWillUnmount` en un solo lugar. \r\n\r\nEn este ejemplo:\r\n\r\n- Al montarse el componente, se inicia un temporizador que incrementa el contador cada segundo.\r\n- Cada vez que el componente se actualiza (cuando el contador cambia), useEffect puede volver a ejecutarse dependiendo de las dependencias.\r\n- La función de limpieza dentro del `useEffect` (el retorno de useEffect) se ejecuta cuando el componente se desmonta, limpiando el temporizador para evitar fugas de memoria."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Un efecto secundario (o \"side effect\") es cualquier operación que ocurre fuera del ciclo de renderizado de React, como:\r\n\r\n- Llamadas a APIs o peticiones HTTP (por ejemplo, usando fetch).\r\n- Suscripciones a eventos (como un WebSocket o un EventListener).\r\n- Manipulación directa del DOM (que React normalmente maneja de manera abstracta).\r\n- Temporizadores (como setInterval o setTimeout).\r\n- Limpieza de recursos (cuando se desmonta un componente)."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### 8.8 Buenas Prácticas con Componentes \r\n \r\n- **Mantener Componentes Pequeños y Reutilizables** .\r\n \r\n- **Evitar Duplicación de Código** ."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#### 9. Directivas "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Nota**: En React, no existen directivas como tal, al menos no de la manera que existen en otros frameworks como `Angular`, donde las directivas son una característica principal para manipular el DOM de manera declarativa. Sin embargo, en React, conceptos similares a las directivas estructurales y directivas de atributo se logran mediante el uso de expresiones `JavaScript` y el flujo condicional."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Las directivas son instrucciones que puedes colocar en el HTML para modificar el comportamiento o la apariencia de un elemento.\r\n\r\n- **Directivas de Atributo**: Cambian la apariencia o el comportamiento de un elemento.\r\n- **Directivas Estructurales**: Alteran el DOM agregando o removiendo elementos (por ejemplo, *ngIf, *ngFor)."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### 9.1 Trabajo con Directivas de Atributo \r\n \r\n- **Aplicar Clases Condicionalmente** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "<div className={activo ? 'activo' : 'inactivo'}>Contenido</div>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Ejemplo funcional**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import React, { useState } from 'react';\r\n\r\nfunction BotonDinamico() {\r\n  const [esActivo, setEsActivo] = useState(true);\r\n\r\n  return (\r\n    <button\r\n      className={esActivo ? 'btn btn-activo' : 'btn btn-inactivo'}\r\n      onClick={() => setEsActivo(!esActivo)}\r\n    >\r\n      {esActivo ? 'Activo' : 'Inactivo'}\r\n    </button>\r\n  );\r\n}\r\n\r\nexport default BotonDinamico;\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "```css\r\n.btn {\r\n    color: white;\r\n    padding: 20px;\r\n}\r\n\r\n.btn.btn-activo {\r\n    background-color:blue;\r\n}\r\n\r\n.btn.btn-inactivo {\r\n    background-color:red;\r\n}\r\n```"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### 9.2 Trabajo con Directivas Estructurales \r\n \r\n- **Renderizado Condicional** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "{usuarioLogueado ? <Dashboard /> : <Login />}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Ejemplo Completo**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import React, { useState } from 'react';"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Componente que representa el Dashboard cuando el usuario está logueado\r\nfunction Dashboard() {\r\n  return (\r\n    <div>\r\n      <h1>Bienvenido al Dashboard</h1>\r\n      <p>Esta es la vista principal para usuarios logueados.</p>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default Dashboard;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Componente que representa el Login cuando el usuario no está logueado\r\nfunction Login({ iniciarSesion }) {\r\n    return (\r\n        <div>\r\n            <h1>Inicia sesión</h1>\r\n            <button onClick={iniciarSesion}>Iniciar sesión</button>\r\n        </div>\r\n    );\r\n}\r\n\r\nexport default Login;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Componente principal que muestra ya sea el Dashboard o la vista de Login\r\nfunction App() {\r\n  const [usuarioLogueado, setUsuarioLogueado] = useState(false);\r\n\r\n  // Función para iniciar sesión\r\n  const iniciarSesion = () => {\r\n    setUsuarioLogueado(true);\r\n  };\r\n\r\n  // Función para cerrar sesión\r\n  const cerrarSesion = () => {\r\n    setUsuarioLogueado(false);\r\n  };\r\n\r\n  return (\r\n    <div>\r\n      {/* Renderizado condicional: Si está logueado, muestra Dashboard; si no, muestra Login */}\r\n      {usuarioLogueado ? (\r\n        <div>\r\n          <Dashboard />\r\n          <button onClick={cerrarSesion}>Cerrar sesión</button>\r\n        </div>\r\n      ) : (\r\n        <Login iniciarSesion={iniciarSesion} />\r\n      )}\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default App;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- **Renderizado de Listas** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const items = ['Elemento 1', 'Elemento 2'];\r\n\r\n<ul>\r\n  {items.map((item, index) => (\r\n    <li key={index}>{item}</li>\r\n  ))}\r\n</ul>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "La propiedad `key` en React se utiliza para ayudar a React a identificar qué elementos de la lista han cambiado, agregado o eliminado. Específicamente, se usa en casos donde se están renderizando listas de elementos (como en tu ejemplo con `<ul>` y `<li>`) para optimizar el proceso de renderizado."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### Ejercicio Práctico 6: Renderizado Condicional y Listas \r\n\r\n**Objetivo** : Mostrar una lista de tareas y permitir agregar nuevas tareas.\r\n\r\n**Pasos** : \r\n1. **Crear el Componente `ListaTareas.js`** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import React, { useState } from 'react';\r\n\r\nfunction ListaTareas() {\r\n  const [tareas, setTareas] = useState(['Aprender React', 'Hacer la compra']);\r\n  const [nuevaTarea, setNuevaTarea] = useState('');\r\n\r\n  function agregarTarea() {\r\n    setTareas([...tareas, nuevaTarea]);\r\n    setNuevaTarea('');\r\n  }\r\n\r\n  return (\r\n    <div>\r\n      <h2>Lista de Tareas</h2>\r\n      <ul>\r\n        {tareas.map((tarea, index) => (\r\n          <li key={index}>{tarea}</li>\r\n        ))}\r\n      </ul>\r\n      <input\r\n        type=\"text\"\r\n        value={nuevaTarea}\r\n        onChange={(e) => setNuevaTarea(e.target.value)}\r\n      />\r\n      <button onClick={agregarTarea}>Agregar Tarea</button>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default ListaTareas;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "2. **Usar en `App.js`** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import ListaTareas from './components/ListaTareas';\r\n\r\nfunction App() {\r\n  return (\r\n    <div>\r\n      <ListaTareas />\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default App;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "3. **Probar Agregar y Mostrar Tareas en el Navegador** ."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#### 10. Servicios y Consumo de APIs"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### 10.1 Consumo de APIs REST \r\n \r\n- **Uso de `fetch` para Obtener Datos** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "useEffect(() => {\r\n  fetch('https://api.example.com/datos')\r\n    .then(response => response.json())\r\n    .then(data => setDatos(data));\r\n}, []);"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### Ejercicio Práctico 7: Consumiendo una API \r\n\r\n**Objetivo** : Mostrar una lista de usuarios obtenida desde una API.**Pasos** : \r\n1. **Crear el Componente `Usuarios.js`** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import React, { useState, useEffect } from 'react';\r\n\r\nfunction Usuarios() {\r\n  const [usuarios, setUsuarios] = useState([]);\r\n\r\n  useEffect(() => {\r\n    fetch('https://jsonplaceholder.typicode.com/users')\r\n      .then(response => response.json())\r\n      .then(data => setUsuarios(data));\r\n  }, []);\r\n\r\n  return (\r\n    <div>\r\n      <h2>Usuarios</h2>\r\n      <ul>\r\n        {usuarios.map(usuario => (\r\n          <li key={usuario.id}>{usuario.name}</li>\r\n        ))}\r\n      </ul>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default Usuarios;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "2. **Incluir en `App.js`** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import Usuarios from './components/Usuarios';\r\n\r\nfunction App() {\r\n  return (\r\n    <div>\r\n      <Usuarios />\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default App;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "3. **Verificar la Lista de Usuarios en el Navegador** ."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### 10.2 Context API \r\n \r\n- **Contexto en React** :\r\n  - Permite pasar datos a través del árbol de componentes sin necesidad de props.\r\n \r\n- **Creación de un Contexto** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const TemaContext = React.createContext('light');"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "##### Ejercicio Práctico 8: Uso de Context API \r\n\r\n**Objetivo** : Implementar un tema oscuro/claro utilizando Context API.**Pasos** : \r\n1. **Crear `TemaContext.js`** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import React from 'react';\r\n\r\nconst TemaContext = React.createContext();\r\n\r\nexport default TemaContext;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "2. **Envolver la Aplicación con el Proveedor de Contexto** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import TemaContext from './TemaContext';\r\n\r\nfunction App() {\r\n  const [tema, setTema] = useState('claro');\r\n\r\n  return (\r\n    <TemaContext.Provider value={{ tema, setTema }}>\r\n      <Contenido />\r\n    </TemaContext.Provider>\r\n  );\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "3. **Consumir el Contexto en un Componente** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import TemaContext from '../TemaContext';\r\nimport { useContext } from 'react';\r\n\r\nexport default function Contenido() {\r\n  const { tema, setTema } = useContext(TemaContext);\r\n\r\n  return (\r\n    <div className={tema}>\r\n      <p>El tema actual es {tema}</p>\r\n      <button onClick={() => setTema(tema === 'claro' ? 'oscuro' : 'claro')}>\r\n        Cambiar Tema\r\n      </button>\r\n    </div>\r\n  );\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "4. **Agregar Estilos para los Temas** ."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#### 11. Manejo de Estado Avanzado "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- **Uso de `useReducer` para Estados Complejos** :\r\n  - Adecuado para manejar lógica de actualización compleja.\r\n\r\n  - Similar a Redux pero integrado en React.\r\n\r\nEjercicio Práctico 9: Implementación de `useReducer`\r\n\r\n**Objetivo** : Crear un contador con múltiples acciones utilizando `useReducer`."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Sintaxis Básica de `useReducer`"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const [estado, dispatch] = useReducer(reducer, estadoInicial);"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- `estado`: Es el valor actual del estado, que puede ser más complejo que el estado de useState.\r\n- `dispatch`: Es la función que se utiliza para enviar (\"dispatch\") acciones al reducer.\r\n- `reducer`: Es una función que toma el estado actual y una acción, y devuelve un nuevo estado.\r\n- `estadoInicial`: El valor con el que se inicializa el estado."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Pasos** : \r\n1. **Crear el Componente `ContadorAvanzado.js`** :"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import React, { useReducer } from 'react';\r\n\r\nfunction contadorReducer(state, action) {\r\n  switch (action.type) {\r\n    case 'incrementar':\r\n      return { contador: state.contador + 1 };\r\n    case 'decrementar':\r\n      return { contador: state.contador - 1 };\r\n    case 'resetear':\r\n      return { contador: 0 };\r\n    default:\r\n      throw new Error();\r\n  }\r\n}\r\n\r\nfunction ContadorAvanzado() {\r\n  const [state, dispatch] = useReducer(contadorReducer, { contador: 0 });\r\n\r\n  return (\r\n    <div>\r\n      <p>Contador: {state.contador}</p>\r\n      <button onClick={() => dispatch({ type: 'incrementar' })}>Incrementar</button>\r\n      <button onClick={() => dispatch({ type: 'decrementar' })}>Decrementar</button>\r\n      <button onClick={() => dispatch({ type: 'resetear' })}>Resetear</button>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default ContadorAvanzado;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "2. **Incluir en `App.js` y Probar** ."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Cuándo usar `useReducer`**\r\n\r\n- Cuando el estado es más complejo o involucra múltiples campos que están relacionados.\r\n- Cuando la lógica de actualización del estado requiere manejar varias operaciones diferentes (como agregar, eliminar, editar elementos en una lista).\r\n- Cuando es más fácil describir las transiciones de estado mediante acciones y un reducer, en lugar de gestionar múltiples llamadas a setState."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#### 12. Hooks Avanzados"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "`useMemo`: Memoriza el resultado de cálculos costosos"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "El hook `useMemo` se utiliza para memorizar el resultado de un cálculo o una operación costosa, de modo que solo se vuelva a calcular si cambian las dependencias. Esto es útil para evitar que React ejecute cálculos innecesarios en cada renderizado, lo cual podría afectar el rendimiento."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const valorCalculado = useMemo(() => computacionPesada(valor), [valor]);"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**Ejemplo**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "import React, { useState, useMemo } from 'react';\r\n\r\nfunction FiltrarLista({ lista }) {\r\n  const [filtro, setFiltro] = useState('');\r\n  \r\n  // Memoriza el resultado del filtrado\r\n  const listaFiltrada = useMemo(() => {\r\n    console.log('Filtrando la lista...');\r\n    return lista.filter(item => item.toLowerCase().includes(filtro.toLowerCase()));\r\n  }, [lista, filtro]); // Solo se recalcula si lista o filtro cambian\r\n\r\n  return (\r\n    <div>\r\n      <input\r\n        type=\"text\"\r\n        value={filtro}\r\n        onChange={(e) => setFiltro(e.target.value)}\r\n        placeholder=\"Filtrar\"\r\n      />\r\n      <ul>\r\n        {listaFiltrada.map((item, index) => (\r\n          <li key={index}>{item}</li>\r\n        ))}\r\n      </ul>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default function App() {\r\n  const lista = ['Manzana', 'Pera', 'Banana', 'Uva', 'Naranja'];\r\n\r\n  return (\r\n    <div>\r\n      <FiltrarLista lista={lista} />\r\n    </div>\r\n  );\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**`useCallback`: Memoriza funciones para evitar recrearlas innecesariamente**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "`useCallback` es un hook que memoriza una función para evitar que se recree en cada renderizado, lo que podría causar renderizados innecesarios en componentes hijos que reciben esa función como prop."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const funcionMemorizada = useCallback(() => { }, [dependencias]);"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function Boton({ onClick, texto }) {\r\n    console.log(`Botón renderizado: ${texto}`);\r\n    return <button onClick={onClick}>{texto}</button>;\r\n  }\r\n  \r\n  function App() {\r\n    const [contador, setContador] = useState(0);\r\n  \r\n    // Memoriza la función para que no se recree en cada renderizado\r\n    const incrementar = useCallback(() => {\r\n      setContador((c) => c + 1);\r\n    }, []); // Solo se recrea si cambia alguna dependencia\r\n  \r\n    return (\r\n      <div>\r\n        <h1>Contador: {contador}</h1>\r\n        <Boton onClick={incrementar} texto=\"Incrementar\" />\r\n      </div>\r\n    );\r\n  }"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- Sin `useCallback`: La función incrementar se recrearía en cada renderizado, lo que podría provocar que el componente hijo Boton se renderice innecesariamente.\r\n- Con `useCallback`: La función incrementar está memorizada y solo se recrea si cambia alguna dependencia, lo que evita renderizados innecesarios del componente hijo."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**`React.lazy`: Carga diferida de componentes**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "`React.lazy` es una función que permite hacer **carga diferida (lazy loading)** de componentes. Esto significa que React solo cargará el componente cuando sea necesario, lo que es útil para mejorar el rendimiento de la aplicación, especialmente cuando se trabaja con aplicaciones grandes o rutas que no siempre son necesarias."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Sintaxis de `React.lazy`"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const ComponenteCargadoDinamicamente = React.lazy(() => import('./Componente'));"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// ComponentePesado.js\r\nimport React from 'react';\r\n\r\nfunction ComponentePesado() {\r\n  return (\r\n    <div>\r\n      <h2>Componente Pesado Cargado</h2>\r\n      <p>Este componente fue cargado de manera diferida con React.lazy.</p>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default ComponentePesado;"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#### 13. Buenas Prácticas y Optimización de Rendimiento"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "- **Evitar Renderizados Innecesarios** .\r\n \r\n- **Utilizar Lazy Loading con `React.lazy`** .\r\n \r\n- **Dividir el Código en Módulos** ."
+            ],
+            "outputs": []
+        }
+    ]
+}

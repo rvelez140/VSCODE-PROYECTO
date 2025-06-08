@@ -1,0 +1,22 @@
+services:
+  backend:
+    build: ./server
+    container_name: inventario_backend
+    ports:
+      - "5010:4010"
+    env_file:
+      - ./server/.env
+    volumes:
+      - ./server:/app
+    restart: unless-stopped
+
+  frontend:
+    build: ./client
+    container_name: inventario_frontend
+    ports:
+      - "5300:5300"
+    env_file:
+      - ./client/.env
+    volumes:
+      - ./client:/app
+    restart: unless-stopped
